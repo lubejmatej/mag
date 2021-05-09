@@ -1,0 +1,13 @@
+.dimensions-list-group {
+    min-height: 100vh;
+    max-height: 100vh;
+    overflow-y: scroll;
+}
+
+.dimensions-list-group > .list-group-item {
+    word-wrap: break-word;
+}
+
+.dimensions-list-group > .text-line-through {
+    text-decoration: line-through;
+}

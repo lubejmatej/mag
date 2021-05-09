@@ -1,0 +1,47 @@
+{
+  "name": "empty-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "scripts": {
+    "clean": "rm dist/bundle.js",
+    "start": "snowpack dev",
+    "build": "snowpack build --polyfill-node",
+    "prettier": "prettier --write \"./src/**/*.{ts,tsx,css}\"",
+    "prettier:check": "prettier --list-different \"./src/**/*.{ts,tsx,css}\"",
+    "format-staged": "pretty-quick --staged --pattern \"**/*.*(ts|tsx|css)\"",
+    "docker:image:build": "docker build -t matejlubej/mag-fe .",
+    "docker:image:run": "docker run --name mag-fe -p 8080:8080 -d matejlubej/mag-fe",
+    "docker:image:save": "docker save --output mag-fe-1.0.0.tar matejlubej/mag-fe"
+  },
+  "dependencies": {
+    "@azure/storage-blob": "^12.5.0",
+    "@types/vis": "^4.21.21",
+    "bootstrap": "^4.6.0",
+    "popper.js": "^1.16.1",
+    "react": "^17.0.2",
+    "react-bootstrap": "^1.5.2",
+    "react-dom": "^17.0.2"
+  },
+  "devDependencies": {
+    "@snowpack/plugin-build-script": "^2.1.0",
+    "@trivago/prettier-plugin-sort-imports": "^2.0.2",
+    "@types/react": "^17.0.3",
+    "@types/react-dom": "^17.0.3",
+    "autoprefixer": "^10.2.5",
+    "husky": "^6.0.0",
+    "postcss": "^8.2.10",
+    "postcss-cli": "^8.3.1",
+    "prettier": "^2.2.1",
+    "pretty-quick": "^3.1.0",
+    "snowpack": "^3.3.3"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run format-staged"
+    }
+  }
+}
